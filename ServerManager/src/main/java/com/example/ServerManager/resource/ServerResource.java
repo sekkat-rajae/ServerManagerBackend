@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -28,7 +29,8 @@ public class ServerResource {
     private  final ServerRepo serverRepo;
 
     @GetMapping("/list")
-    public ResponseEntity<Response> getServers(){
+    public ResponseEntity<Response> getServers() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(1);
         return ResponseEntity.ok(
 
                 Response.builder()
