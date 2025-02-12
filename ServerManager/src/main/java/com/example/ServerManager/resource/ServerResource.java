@@ -62,14 +62,14 @@ public class ServerResource {
                 Response.builder()
                         .timeStamp(LocalDate.now())
                         .data(Map.of("server", server))
-                        .message(server.getStatus()== Status.SERVER_UP? "Ping success": "Ping failed")
+                        .message(" server added")
                         .status(CREATED)
                         .statusCode(CREATED.value())
                         .build()
         );
     }
     @GetMapping("/get/{id}")
-    public ResponseEntity<Response> pingServer(@PathVariable("id") Long id)  {
+    public ResponseEntity<Response> getServer(@PathVariable("id") Long id)  {
         return ResponseEntity.ok(
 
                 Response.builder()

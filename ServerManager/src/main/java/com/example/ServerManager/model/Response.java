@@ -11,10 +11,12 @@ import java.util.Map;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
+/* I created the response class to structure HTTP responses.*/
+
 @Data /* is a convenient shortcut annotation that bundles the features of @ToString,
          @EqualsAndHashCode, @Getter / @Setter and @RequiredArgsConstructor together */
-@SuperBuilder
-@JsonInclude(NON_NULL)
+@SuperBuilder /* Allows us to use the Builder pattern, meaning we can create an instance of Response using .builder() */
+@JsonInclude(NON_NULL) /* If a field is null, it won’t be included in the JSON response.*/
 public class Response {
     protected LocalDate timeStamp;
     protected  int statusCode;
